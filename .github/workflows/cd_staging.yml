@@ -14,7 +14,8 @@ jobs:
           echo "${{ secrets.SSH_PrivateKey }}" > ssh_key
           chmod 600 ssh_key
           ssh -o StrictHostKeyChecking=no -i ssh_key root@64.227.190.16
-          cd devops-cicd && git pull
+          echo ls
+          cd /root/devops-cicd && git pull
           pnpm install
           pnpm run build
           pm2 restart web
