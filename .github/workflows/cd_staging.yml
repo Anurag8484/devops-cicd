@@ -15,4 +15,3 @@ jobs:
           chmod 600 ssh_key
           ssh -o StrictHostKeyChecking=no -i ssh_key root@64.227.190.16 -t " cd /root/devops-cicd && git pull && export PATH=/root/.nvm/versions/node/v22.13.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && npm i -g pnpm && pnpm install && pnpm run build && pm2 restart web && pm2 restart http-server && pm2 restart ws-server"
           
- 
