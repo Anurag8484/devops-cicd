@@ -11,8 +11,9 @@ jobs:
     steps:
       - name: SSH Into Server
         run: |
-          echo {{ secrets.SSH_PrivateKey }} &> ~/ssh_key
-          ssh -i ~/ssh_key root@64.227.190.16
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ssh_key
+          chmod 600 ssh_key
+          ssh -o StrictHostKeyChecking=no -i ssh_key root@64.227.190.16
           cd devops-cicd/ && git pull
           pnpm install
           pnpm run build
