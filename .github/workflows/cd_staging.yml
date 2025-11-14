@@ -14,7 +14,7 @@ jobs:
         with:
           host: 64.227.190.16
           username: root
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_PrivateKey }}
           script: |
             cd /root/devops-cicd
             git pull
